@@ -27,9 +27,9 @@ if __name__ == '__main__':
             '''Excludes all files with "unique" in filenam, 
             which correspond to bigwigs considering unique alignments only.
             We use the bigwigs that count all primary alignments.'''
-            bw_stream = BigWig.open(bigwig)
+            tcga_bw = BigWig(bigwig)
             try:
-               coverage = bw_stream.values('chr5', 177093734, 177093735)[0]
+               coverage = tcga_bw.values('chr5', 177093734, 177093735)[0]
             except IndexError:
                 # Nothing to see in this bigwig
                 pass
