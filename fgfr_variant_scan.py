@@ -26,11 +26,11 @@ if __name__ == '__main__':
             '''Excludes all files with "unique" in filenam, 
             which correspond to bigwigs considering unique alignments only.
             We use the bigwigs that count all primary alignments.'''
-            bw_stream = BigWig.open(bw)
+            bw_stream = BigWig.open(bigwig)
             try:
                coverage = bw_stream.values('chr5', 177093734, 177093735)[0]
             except IndexError:
                 # Nothing to see in this bigwig
                 pass
             else:
-                print '\t'.join([bw, str(coverage)])
+                print '\t'.join([bigwig, str(coverage)])
