@@ -22,7 +22,7 @@ if __name__ == '__main__':
     root_dir = sys.argv[1]
     for batch_dir in glob.glob(os.path.join(root_dir, 'batch_*')):
         for bigwig in glob.glob(
-                    os.path.join(batch_dir, 'coverage_bigwigs', '*.G.bw')
+                    os.path.join(batch_dir, 'coverage_bigwigs', '*.A.bw')
                 ):
             '''Excludes all files with "unique" in filenam, 
             which correspond to bigwigs considering unique alignments only.
