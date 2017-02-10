@@ -62,3 +62,4 @@ if __name__ == '__main__':
                             str(coverage)]
                     )
                 sys.stdout.flush()
+                tcga_bw.close()
