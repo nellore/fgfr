@@ -24,6 +24,9 @@ cat TCGA.tsv | cut -f11,19,22,90,179,170 >tcga_meta.tsv
 to obtain the much smaller metadata file tcga_meta.tsv that has bigwig AUCs
 for normalization.
 
+
+FGFR1: 18 exons; two kinase subdomains within exons 10-18
+
 """
 from bw import BigWig
 import sys
@@ -41,11 +44,20 @@ if __name__ == '__main__':
             We use the bigwigs that count all primary alignments.'''
             tcga_bw = BigWig(bigwig)
             try:
-               coverage = tcga_bw.values('chr5', 177093733, 177093734)[0]
+               A_coverage = tcga_bw.values('chr5', 177093733, 177093734)[0]
             except IndexError:
                 # Nothing to see in this bigwig
                 pass
             else:
-                print '\t'.join([bigwig, str(coverage)])
-            tcga_bw.close()
-
+                tcga_bw.close()
+                # Grab total coverage at variant
+                tcga_bw = BigWig('.'.join(bigwig.split('.')[:-2] + ['bw']))
+                try:
+                    coverage = tcga_bw.values('chr5', 177093733, 177093734)[0]
+                except IndexError:
+                    coverage = 0.0
+                print '\t'.join(
+                        [bigwig.rpartition('/')[-1],
+                            str(A_coverage),
+                            str(coverage)]
+                    )
