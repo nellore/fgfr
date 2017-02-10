@@ -35,3 +35,5 @@ if __name__ == '__main__':
                 pass
             else:
                 print '\t'.join([bigwig, str(coverage)])
+            tcga_bw.close()
+
