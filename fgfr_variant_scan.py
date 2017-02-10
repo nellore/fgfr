@@ -13,7 +13,7 @@ chr5:177093734-177093735 iff any G>A reads are detected.
 
 Requires https://github.com/brentp/bw-python. We ran:
 
-python fgfr_variant_scan.py /dcl01/leek/data/tcga/v1 | sort -k2,2g \
+python fgfr_variant_scan.py /dcl01/leek/data/tcga/v1 | sort -k2,2gr \
     >fgfr_mutation_coverages.sorted.tsv on JHPCE.
 """
 from bw import BigWig
