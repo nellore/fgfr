@@ -61,3 +61,4 @@ if __name__ == '__main__':
                             str(A_coverage),
                             str(coverage)]
                     )
+                sys.stdout.flush()
