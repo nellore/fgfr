@@ -16,6 +16,7 @@ Requires https://github.com/brentp/bw-python
 from bw import BigWig
 import sys
 import os
+import glob
 
 if __name__ == '__main__':
     root_dir = sys.argv[1]
