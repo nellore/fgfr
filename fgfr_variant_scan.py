@@ -29,7 +29,7 @@ if __name__ == '__main__':
             We use the bigwigs that count all primary alignments.'''
             tcga_bw = BigWig(bigwig)
             try:
-               coverage = tcga_bw.values('chr5', 177093734, 177093735)[0]
+               coverage = tcga_bw.values('chr5', 177093733, 177093734)[0]
             except IndexError:
                 # Nothing to see in this bigwig
                 pass
