@@ -13,8 +13,8 @@ chr5:177093734-177093735 iff any G>A reads are detected.
 
 Requires https://github.com/brentp/bw-python. We ran:
 
-python fgfr_variant_scan.py /dcl01/leek/data/tcga/v1 | sort -k2,2gr \
-    >fgfr_mutation_coverages.sorted.tsv on JHPCE.
+python fgfr_variant_scan.py /dcl01/leek/data/tcga/v1 \
+    >fgfr_mutation_coverages.tsv on JHPCE.
 
 We subsequently downloaded http://duffel.rail.bio/recount/TCGA/TCGA.tsv 
 containing TCGA metadata and ran
@@ -23,7 +23,6 @@ cat TCGA.tsv | cut -f11,19,22,90,179,170 >tcga_meta.tsv
 
 to obtain the much smaller metadata file tcga_meta.tsv that has bigwig AUCs
 for normalization.
-
 
 FGFR1: 18 exons; two kinase subdomains within exons 10-18
 
