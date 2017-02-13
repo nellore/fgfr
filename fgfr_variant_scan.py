@@ -56,7 +56,7 @@ if __name__ == '__main__':
                 except IndexError:
                     coverage = 0.0
                 print '\t'.join(
-                        [bigwig.rpartition('/')[-1],
+                        [bigwig.rpartition('/')[-1].partition('.')[0],
                             str(A_coverage),
                             str(coverage)]
                     )
