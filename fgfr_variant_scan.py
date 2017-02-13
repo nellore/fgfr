@@ -21,11 +21,13 @@ containing TCGA metadata and ran
 
 cat TCGA.tsv | cut -f11,19,22,90,179,170 >tcga_meta.tsv
 
-to obtain the much smaller metadata file tcga_meta.tsv that has bigwig AUCs
-for normalization.
+to obtain the much smaller metadata file tcga_meta.tsv. To merge metadata and
+variant scan output, we ran
 
+(echo -e "file uuid\tchr5:177093733 G>A coverage\tchr5:177093733 total coverage\tauc\tcase uuid\ttumor stage\tdisease type\tsample type"; paste fgfr_mutation_coverages.tsv <(for i in $(cut -f1 fgfr_mutation_coverages.tsv); do grep $i tcga_meta.tsv; done) | cut -f1,2,3,4,6,7,8,9)
+
+---some notes on FGFRs
 FGFR1: 18 exons; two kinase subdomains within exons 10-18
-
 """
 from bw import BigWig
 import sys
